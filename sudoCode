@@ -1,0 +1,34 @@
+Procedure start
+    EXP
+    if token != $ error
+
+Procedure EXP
+    if token in {(,1,2,3}
+        then TERM
+    else error
+    If token in {+,-}
+        then EXP
+
+Procedure TERM
+    if token in {(,1,2,3}
+        then FACTOR
+    else error
+    If token in {*,/}
+        then TERM
+
+Procedure FACTOR
+    If token == (
+        then EXP
+        If token != )
+            then error
+    else if token in {0,1,2,3}
+        then DIGIT
+
+Procedure DIGIT 
+    if token in {0,1,2,3}
+        then lex
+
+
+
+
+    
